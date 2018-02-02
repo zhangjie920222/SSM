@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ <mapper namespace="com.gnnt.dao.UserMapper">
+	<!-- 解决表名与字段不匹配 -->
+	<resultMap type="com.gnnt.model.User" id="userResultMap">
+		<result property="userId" column="userid"/>
+		<result property="userImg" column="userimg"/>
+		<result property="userName" column="username"/>
+		<result property="password" column="password"/>
+		<result property="createTime" column="createtime"/>
+		<result property="lastTime" column="lasttime"/>
+	</resultMap>
+	
+	<select id="findAllUser" resultMap="userResultMap">
+		select * from e_user
+	</select>
+</mapper>
